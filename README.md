@@ -1,3 +1,6 @@
+---
+# JobGenie: WORK - IN - PROGRESS :)
+---
 # JobGenie: AI-Powered Career Assistant
 
 **JobGenie** is a cloud-native, API-driven AI application that helps job seekers optimize their resumes, understand job descriptions, and practice mock interviews using Natural Language Processing (NLP) and Speech Recognition.
