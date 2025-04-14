@@ -1,0 +1,9 @@
+# Ignore virtual env
+jobgenie-env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment secrets
+.env
