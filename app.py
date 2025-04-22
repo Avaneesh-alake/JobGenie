@@ -1,6 +1,7 @@
 import gradio as gr
 from resume_optimizer import optimize_resume_section
 from job_description_analyzer import extract_skills_from_jd, compare_resume_with_jd
+from voice_interview import transcribe_audio_file
 
 def rewrite(section, tone, job_title):
     if not section.strip():
@@ -23,7 +24,7 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
 
         with gr.Row():
             section_input = gr.Textbox(
-                label="📄 Resume Section",
+                label="Resume Section",
                 lines=6,
                 placeholder="Paste your current resume section here"
             )
@@ -31,49 +32,59 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
         with gr.Row():
             tone_input = gr.Dropdown(
                 choices=["professional", "confident", "concise", "friendly"],
-                label="🎯 Tone",
+                label="Tone",
                 value="professional"
             )
             job_title_input = gr.Textbox(
-                label="💼 Target Job Title (optional)",
+                label="Target Job Title (optional)",
                 placeholder="e.g. Cloud Engineer"
             )
 
         with gr.Row():
-            btn = gr.Button("🚀 Rewrite Section")
+            btn = gr.Button("Rewrite Section")
 
-        output = gr.Textbox(label="✨ Rewritten Resume Section", lines=6)
+        output = gr.Textbox(label="Rewritten Resume Section", lines=6)
 
         btn.click(fn=rewrite, inputs=[section_input, tone_input, job_title_input], outputs=output)
 
-    with gr.Tab("📊 Job Description Analyzer"):
+    with gr.Tab("📝 Job Description Analyzer"):
         gr.Markdown("### Extract skills from a job description and calculate your job fit score")
 
         with gr.Row():
             with gr.Column():
                 jd_input = gr.Textbox(
-                    label="📝 Job Description",
+                    label="Job Description",
                     lines=6,
                     placeholder="Paste job description here"
                 )
             with gr.Column():
                 resume_input = gr.Textbox(
-                    label="📋 Your Resume Text",
+                    label="Your Resume Text",
                     lines=6,
                     placeholder="Paste your resume section here"
                 )
 
-        analyze_button = gr.Button("🔍 Analyze Job Fit")
+        analyze_button = gr.Button("Analyze Job Fit")
 
         with gr.Row():
-            skills_output = gr.Textbox(label="🔑 Extracted Skills from JD")
-            score_output = gr.Textbox(label="💯 Job Fit Score (%)")
+            skills_output = gr.Textbox(label="Extracted Skills from JD")
+            score_output = gr.Textbox(label="Job Fit Score (%)")
 
         analyze_button.click(
             fn=analyze,
             inputs=[jd_input, resume_input],
             outputs=[skills_output, score_output]
         )
+
+    with gr.Tab("🎤 Voice Interview Assistant"):
+        gr.Markdown("### Practice mock interviews using your voice")
+        with gr.Row():
+            audio_input = gr.Audio(sources=["microphone"], type="filepath", label="Record Your Answer")
+            transcribe_button = gr.Button("Transcribe and Analyze")
+        with gr.Row():
+            transcript_output = gr.Textbox(label="Transcribed Answer", lines=6)
+        transcribe_button.click(fn=transcribe_audio_file, inputs=[audio_input], outputs=[transcript_output])
+
 
 # Launch in browser
 if __name__ == "__main__":
