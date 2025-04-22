@@ -1,46 +1,50 @@
----
-# JobGenie: WORK - IN - PROGRESS :)
----
 # JobGenie: AI-Powered Career Assistant
 
-**JobGenie** is a cloud-native, API-driven AI application that helps job seekers optimize their resumes, understand job descriptions, and practice mock interviews using Natural Language Processing (NLP) and Speech Recognition.
+**JobGenie** is a cloud-native, API-driven AI application designed to help job seekers improve their resumes, analyze job descriptions, and prepare for interviews using Natural Language Processing (NLP) and Speech Recognition.
 
-> Built as part of the **API-driven Cloud Native Solutions** course at BITS Pilani.
+>  Built as part of the **API-driven Cloud Native Solutions** course at BITS Pilani.
 
 ---
 
 ## Features
 
--  **Resume Rewriter**  
-  Rewrites resume sections in a professional tone using LLMs.
+### Resume Rewriter
+Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to rewrite content in different tones for specific job roles.
 
--  **Job Description Analyzer** *(coming soon)*  
-  Extracts key skills and matches them with resume content.
+### Job Description Analyzer
+- Extracts top keywords and skills from a Job Description using `KeyBERT`
+- Compares user’s resume content with the JD using `Sentence Transformers`
+- Outputs a smart **Job Fit Score**
 
--  **Voice-based Interview Assistant** *(coming soon)*  
-  Ask/Answer mock interview questions using speech-to-text.
+### Voice-based Interview Assistant *(Coming Soon)*
+- Practice answering interview questions by voice
+- Convert voice input to text using Whisper or sounddevice
+- Get feedback on tone and coherence
 
--  **LLMOps Metrics Dashboard** *(coming soon)*  
-  Tracks response time, token usage, accuracy, and cost.
+### LLMOps Metrics Dashboard *(Coming Soon)*
+- Track token usage, latency, relevance metrics, and cost insights
+
+---
+
+## 🛠️ Tech Stack
+
+| Category         | Tools / Frameworks                          |
+|------------------|---------------------------------------------|
+| Language         | Python 3.10+                                |
+| LLM Model        | Hugging Face Transformers (`flan-t5-base`)  |
+| Skill Extraction | KeyBERT                                     |
+| Similarity Model | Sentence Transformers (`MiniLM`)            |
+| UI Interface     | Gradio                                      |
+| Deployment Ready | Docker, AWS EC2 / Lambda                    |
+| DevOps Ready     | `.env`, `requirements.txt`, Git             |
 
 ---
 
-## 🔧 Tech Stack
-
-| Type             | Tools / Libraries                          |
-|------------------|--------------------------------------------|
-| Language         | Python                                     |
-| NLP Models       | Hugging Face Transformers (`flan-t5-base`) |
-| UI Interface     | Gradio                                     |
-| Deployment Ready | Docker + AWS (EC2 / Lambda / S3)           |
-| DevOps Ready     | `.env`, `requirements.txt`, version control |
-
----
 ## Local Setup
----
+
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/JobGenie.git
+git clone https://github.com/Avaneesh-alake/JobGenie.git
 cd JobGenie
 
 # Create and activate virtual environment
@@ -50,11 +54,9 @@ jobgenie-env\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the app
+# Run the application
 python app.py
 
-Note: Create a .env file in the root directory:
-OPENAI_API_KEY=sk-xxxxx      # Optional (only if you switch to OpenAI)
 ```
 ---
 License
