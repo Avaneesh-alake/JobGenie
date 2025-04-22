@@ -1,7 +1,8 @@
 import gradio as gr
 from resume_optimizer import optimize_resume_section
 from job_description_analyzer import extract_skills_from_jd, compare_resume_with_jd
-from voice_interview import transcribe_audio_file
+from voice_interview import transcribe_audio_file, analyze_speech_feedback
+
 
 def rewrite(section, tone, job_title):
     if not section.strip():
@@ -78,12 +79,26 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
 
     with gr.Tab("🎤 Voice Interview Assistant"):
         gr.Markdown("### Practice mock interviews using your voice")
+
         with gr.Row():
-            audio_input = gr.Audio(sources=["microphone"], type="filepath", label="Record Your Answer")
-            transcribe_button = gr.Button("Transcribe and Analyze")
+            audio_input = gr.Audio(sources=["microphone"], type="filepath", label="🎙️ Record Your Answer")
+            transcribe_button = gr.Button("📝 Transcribe and Analyze")
+
         with gr.Row():
-            transcript_output = gr.Textbox(label="Transcribed Answer", lines=6)
-        transcribe_button.click(fn=transcribe_audio_file, inputs=[audio_input], outputs=[transcript_output])
+            transcript_output = gr.Textbox(label="🗒️ Transcribed Answer", lines=6)
+            feedback_output = gr.Textbox(label="💬 AI Feedback", lines=4)
+
+        def process_audio_and_feedback(audio_path):
+            transcript = transcribe_audio_file(audio_path)
+            feedback = analyze_speech_feedback(transcript)
+            return transcript, feedback
+
+        transcribe_button.click(
+            fn=process_audio_and_feedback,
+            inputs=[audio_input],
+            outputs=[transcript_output, feedback_output]
+        )
+
 
 
 # Launch in browser
