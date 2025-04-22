@@ -16,7 +16,7 @@ Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to 
 - Compares user’s resume content with the JD using `Sentence Transformers`
 - Outputs a smart **Job Fit Score**
 
-### Voice-based Interview Assistant *(Coming Soon)*
+### Voice-based Interview Assistant *(In-progress)*
 - Practice answering interview questions by voice
 - Convert voice input to text using Whisper or sounddevice
 - Get feedback on tone and coherence
