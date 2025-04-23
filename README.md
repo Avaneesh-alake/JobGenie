@@ -22,7 +22,7 @@ Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to 
 - Get feedback on tone and coherence
 - Voice Feedback Tracker Dashboard
 
-### LLMOps Metrics Dashboard *(Coming Soon)*
+### LLMOps Metrics Dashboard *(In-progress)*
 - Track token usage, latency, relevance metrics, and cost insights
 
 ---
@@ -72,7 +72,7 @@ This project is for academic purposes. All AI-generated content is subject to re
 - 4 | Used flan-t5-base, Whisper, Sentence Transformers, KeyBERT | ✅
 - 5 | All tasks work toward Career Assistant goal | ✅
 - 6 | Hugging Face APIs and models integrated (no OpenAI) | ✅
-- 7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | *(Coming Soon)*
+- 7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | ✅
 - 8 | Fine-tune any model on a dataset from this domain | *(Coming Soon)*
 ---
 
