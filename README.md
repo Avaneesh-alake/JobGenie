@@ -16,7 +16,7 @@ Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to 
 - Compares user’s resume content with the JD using `Sentence Transformers`
 - Outputs a smart **Job Fit Score**
 
-### Voice-based Interview Assistant *(In-progress)*
+### Voice-based Interview Assistant 
 - Practice answering interview questions by voice
 - Convert voice input to text using Whisper or sounddevice
 - Get feedback on tone and coherence
@@ -62,3 +62,16 @@ python app.py
 License
 ---
 This project is for academic purposes. All AI-generated content is subject to respective model licenses.
+---
+---
+# | Task | Status
+1 | Domain selected (Career Assistant) | ✅
+2 | Categories chosen: NLP + Speech | ✅
+3 | 5 cohesive sub-tasks identified & built:  Resume rewrite, JD analyzer, fit score, voice transcript, feedback | ✅
+4 | Used flan-t5-base, Whisper, Sentence Transformers, KeyBERT | ✅
+5 | All tasks work toward Career Assistant goal | ✅
+6 | Hugging Face APIs and models integrated (no OpenAI) | ✅
+7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | *(Coming Soon)*
+8 | Fine-tune any model on a dataset from this domain | *(Coming Soon)*
+---
+
