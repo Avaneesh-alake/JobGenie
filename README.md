@@ -20,6 +20,7 @@ Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to 
 - Practice answering interview questions by voice
 - Convert voice input to text using Whisper or sounddevice
 - Get feedback on tone and coherence
+- Voice Feedback Tracker Dashboard
 
 ### LLMOps Metrics Dashboard *(Coming Soon)*
 - Track token usage, latency, relevance metrics, and cost insights
