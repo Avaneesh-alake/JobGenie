@@ -64,14 +64,14 @@ License
 This project is for academic purposes. All AI-generated content is subject to respective model licenses.
 ---
 ---
-# | Task | Status
-1 | Domain selected (Career Assistant) | ✅
-2 | Categories chosen: NLP + Speech | ✅
-3 | 5 cohesive sub-tasks identified & built:  Resume rewrite, JD analyzer, fit score, voice transcript, feedback | ✅
-4 | Used flan-t5-base, Whisper, Sentence Transformers, KeyBERT | ✅
-5 | All tasks work toward Career Assistant goal | ✅
-6 | Hugging Face APIs and models integrated (no OpenAI) | ✅
-7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | *(Coming Soon)*
-8 | Fine-tune any model on a dataset from this domain | *(Coming Soon)*
+# | Task | Status 
+- 1 | Domain selected (Career Assistant) | ✅
+- 2 | Categories chosen: NLP + Speech | ✅
+- 3 | 5 cohesive sub-tasks identified & built:  Resume rewrite, JD analyzer, fit score, voice transcript, feedback | ✅
+- 4 | Used flan-t5-base, Whisper, Sentence Transformers, KeyBERT | ✅
+- 5 | All tasks work toward Career Assistant goal | ✅
+- 6 | Hugging Face APIs and models integrated (no OpenAI) | ✅
+- 7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | *(Coming Soon)*
+- 8 | Fine-tune any model on a dataset from this domain | *(Coming Soon)*
 ---
 
