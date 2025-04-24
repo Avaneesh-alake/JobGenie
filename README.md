@@ -1,78 +1,104 @@
-# JobGenie: AI-Powered Career Assistant
+# 💼 JobGenie: AI-Powered Career Assistant
 
-**JobGenie** is a cloud-native, API-driven AI application designed to help job seekers improve their resumes, analyze job descriptions, and prepare for interviews using Natural Language Processing (NLP) and Speech Recognition.
+**JobGenie** is a cloud-native, API-driven AI application that helps job seekers:
+- Rewrite resume sections with AI-generated suggestions.
+- Analyze job descriptions and match relevant skills.
+- Practice voice-based mock interviews with instant feedback.
+- Log LLM metrics for monitoring and optimization.
 
->  Built as part of the **API-driven Cloud Native Solutions** course at BITS Pilani.
+> Developed as part of the **API-Driven Cloud Native Solutions** course at **BITS Pilani**.
 
 ---
 
 ## Features
 
-### Resume Rewriter
-Enhances resume sections using Hugging Face's `flan-t5-base`, allowing users to rewrite content in different tones for specific job roles.
+### ✍️ Resume Rewriter
+- Rewrites poorly written or unstructured resume sections.
+- Uses **OpenAI GPT-3.5 Turbo** for professional, confident, or concise tone transformations.
+- Accepts optional job titles for context-aware rewriting.
 
-### Job Description Analyzer
-- Extracts top keywords and skills from a Job Description using `KeyBERT`
-- Compares user’s resume content with the JD using `Sentence Transformers`
-- Outputs a smart **Job Fit Score**
+### 📝 Job Description Analyzer
+- **Dual skill extraction**:
+  - Method 1: Keyword-based (KeyBERT)
+  - Method 2: Fine-tuned T5 Model (Hugging Face Transformers)
+- Computes **Job Fit Score** by comparing resume vs extracted JD skills.
 
-### Voice-based Interview Assistant 
-- Practice answering interview questions by voice
-- Convert voice input to text using Whisper or sounddevice
-- Get feedback on tone and coherence
-- Voice Feedback Tracker Dashboard
+### 🎤 Voice Interview Assistant
+- Uses microphone input to record user response.
+- Converts speech to text using Whisper.
+- Provides instant **AI-powered feedback** on the spoken response.
 
-### LLMOps Metrics Dashboard *(In-progress)*
-- Track token usage, latency, relevance metrics, and cost insights
-
----
-
-## 🛠️ Tech Stack
-
-| Category         | Tools / Frameworks                          |
-|------------------|---------------------------------------------|
-| Language         | Python 3.10+                                |
-| LLM Model        | Hugging Face Transformers (`flan-t5-base`)  |
-| Skill Extraction | KeyBERT                                     |
-| Similarity Model | Sentence Transformers (`MiniLM`)            |
-| UI Interface     | Gradio                                      |
-| Deployment Ready | Docker, AWS EC2 / Lambda                    |
-| DevOps Ready     | `.env`, `requirements.txt`, Git             |
+### 📊 LLMOps Metrics Dashboard *(Internal Logging)*
+- Logs:
+  - Prompt
+  - Model used
+  - Tokens used
+  - Response time
+  - Output
+  - Task type
+  - Timestamp
 
 ---
 
-## Local Setup
+## Tech Stack
 
+| Category     | Tools Used |
+|--------------|------------|
+| Language     | Python 3.10+ |
+| Frontend     | Gradio |
+| LLMs         | OpenAI GPT-3.5, Hugging Face Flan-T5 |
+| Speech-to-Text | OpenAI Whisper |
+| Keyword Extraction | KeyBERT |
+| Model Training | Hugging Face Transformers, Datasets |
+| Logging       | CSV-based custom logger |
+| Deployment Ready | Docker + AWS (EC2/S3/Lambda optional) |
+
+---
+## Setup Instructions (Local)
+---
+### 1. Clone the Repo
 ```bash
-# Clone the repo
 git clone https://github.com/Avaneesh-alake/JobGenie.git
 cd JobGenie
 
-# Create and activate virtual environment
+### 2. Create and Activate Virtual Environment
 python -m venv jobgenie-env
 jobgenie-env\Scripts\activate
 
-# Install dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-# Run the application
+### 4. Add Environment Variables
+Create a .env file in the root directory:
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxx
+
+### Run the App
 python app.py
-
-```
+The Gradio UI will launch in your browser.
 ---
-License
+### 📁 Directory Structure
+JobGenie/
+├── app.py
+├── resume_optimizer.py
+├── job_description_analyzer.py
+├── voice_interview.py
+├── train_jd_skill_extractor.py
+├── predict_skills.py
+├── datasets/
+│   └── jd_to_skills.csv
+├── models/
+│   └── jd_skill_extractor/
+│       └── final_model/
+├── logs/
+│   └── llm_metrics_resume.csv
+├── requirements.txt
+└── .env
 ---
-This project is for academic purposes. All AI-generated content is subject to respective model licenses.
+### 📌 Notes
+Fine-tuned Flan-T5 model trained on 80+ JD → Skills examples.
+OpenAI used for real-time resume rewriting for high-quality outputs.
+All components modular and ready for integration into a production pipeline.
 ---
+###📜 License
 ---
-# | Task | Status 
-- 1 | Domain selected (Career Assistant) | ✅
-- 2 | Categories chosen: NLP + Speech | ✅
-- 3 | 5 cohesive sub-tasks identified & built:  Resume rewrite, JD analyzer, fit score, voice transcript, feedback | ✅
-- 4 | Used flan-t5-base, Whisper, Sentence Transformers, KeyBERT | ✅
-- 5 | All tasks work toward Career Assistant goal | ✅
-- 6 | Hugging Face APIs and models integrated (no OpenAI) | ✅
-- 7 | LLMOps metrics logging & evaluation (token count, latency, etc.) | ✅
-- 8 | Fine-tune any model on a dataset from this domain | *(Coming Soon)*
----
-
+This project is intended for academic purposes only. Respect the license terms of used APIs and models.
