@@ -7,3 +7,12 @@ __pycache__/
 
 # Ignore environment secrets
 .env
+
+# Ignore large model files
+*.safetensors
+*.bin
+models/jd_skill_extractor/*
+!models/jd_skill_extractor/README.md  # if you want to keep metadata
+
+# Ignore Hugging Face cache
+~/.cache/huggingface
