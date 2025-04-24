@@ -51,7 +51,7 @@
 | Keyword Extraction | KeyBERT |
 | Model Training | Hugging Face Transformers, Datasets |
 | Logging       | CSV-based custom logger |
-| Deployment Ready | Docker + AWS (EC2/S3/Lambda optional) |
+| Deployment Ready | Docker + AWS (EC2/S3/Lambda optional as of now) |
 
 ---
 ## Setup Instructions (Local)
