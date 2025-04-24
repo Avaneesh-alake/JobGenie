@@ -1,18 +1,21 @@
-# Ignore virtual env
+# Ignore virtual environment
 jobgenie-env/
 
-# Ignore Python cache files
+# Ignore Python cache
 __pycache__/
 *.pyc
 
-# Ignore environment secrets
+# Ignore secrets and environment config
 .env
 
-# Ignore large model files
+# Ignore large model files (weights, checkpoints)
 *.safetensors
 *.bin
-models/jd_skill_extractor/*
-!models/jd_skill_extractor/README.md  # if you want to keep metadata
+*.h5
 
-# Ignore Hugging Face cache
-~/.cache/huggingface
+# Ignore entire model folder except metadata
+models/jd_skill_extractor/**
+!models/jd_skill_extractor/README.md
+
+# Hugging Face cache (global, use only if stored inside project)
+.cache/
