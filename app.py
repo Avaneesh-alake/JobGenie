@@ -1,6 +1,10 @@
 import gradio as gr
 from resume_optimizer import optimize_resume_section
-from job_description_analyzer import extract_skills_from_jd, compare_resume_with_jd
+from job_description_analyzer import (
+    extract_skills_from_jd_keywords,
+    extract_skills_from_jd_finetuned,
+    compare_resume_with_jd
+)
 from voice_interview import transcribe_audio_file, analyze_speech_feedback
 
 
@@ -49,8 +53,7 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
         btn.click(fn=rewrite, inputs=[section_input, tone_input, job_title_input], outputs=output)
 
     with gr.Tab("📝 Job Description Analyzer"):
-        gr.Markdown("### Extract skills from a job description and calculate your job fit score")
-
+        gr.Markdown("### Extract skills from a job description using two methods:\n- 🧠 Existing keyword extractor\n- 🤖 Your fine-tuned AI model")
         with gr.Row():
             with gr.Column():
                 jd_input = gr.Textbox(
@@ -68,14 +71,26 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
         analyze_button = gr.Button("Analyze Job Fit")
 
         with gr.Row():
-            skills_output = gr.Textbox(label="Extracted Skills from JD")
+            keyword_skills_output = gr.Textbox(label="Skills from Keyword Extractor")
+            finetuned_skills_output = gr.Textbox(label="Skills from Fine-Tuned Model")
+        with gr.Row():
             score_output = gr.Textbox(label="Job Fit Score (%)")
-
+        def analyze(jd, resume):
+            from job_description_analyzer import (
+                extract_skills_from_jd_keywords,
+                extract_skills_from_jd_finetuned,
+                compare_resume_with_jd
+            )
+            keywords = extract_skills_from_jd_keywords(jd)
+            finetuned = extract_skills_from_jd_finetuned(jd)
+            score = compare_resume_with_jd(resume, jd)
+            return ", ".join(keywords), ", ".join(finetuned), f"{score} %"
         analyze_button.click(
             fn=analyze,
             inputs=[jd_input, resume_input],
-            outputs=[skills_output, score_output]
+            outputs=[keyword_skills_output, finetuned_skills_output, score_output]
         )
+
 
     with gr.Tab("🎤 Voice Interview Assistant"):
         gr.Markdown("### Practice mock interviews using your voice")
