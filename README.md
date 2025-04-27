@@ -1,5 +1,7 @@
 # 💼 JobGenie: AI-Powered Career Assistant
 
+[![Deployment Status](https://img.shields.io/badge/Deployed%20on-Render-brightgreen)](https://jobgenie-rega.onrender.com)
+
 **JobGenie** is a cloud-native, API-driven AI application that helps job seekers:
 - Rewrite resume sections with AI-generated suggestions.
 - Analyze job descriptions and match relevant skills.
