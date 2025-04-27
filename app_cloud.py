@@ -2,6 +2,7 @@ import gradio as gr
 from resume_optimizer import optimize_resume_section
 from job_description_analyzer import extract_skills_from_jd_keywords, compare_resume_with_jd
 from voice_interview import transcribe_audio_file, analyze_speech_feedback
+import os
 
 def rewrite(section, tone, job_title):
     if not section.strip():
@@ -113,4 +114,5 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
 
 # Launch in browser
 if __name__ == "__main__":
-    demo.launch()
+    port = int(os.environ.get('PORT', 7860))
+    demo.launch(server_name="0.0.0.0", server_port=port)
