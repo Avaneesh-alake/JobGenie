@@ -1,0 +1,8 @@
+gradio
+openai
+keybert
+sentence-transformers
+scikit-learn
+sounddevice
+SpeechRecognition
+python-dotenv
