@@ -1,7 +1,7 @@
 import gradio as gr
 from resume_optimizer import optimize_resume_section
 from job_description_analyzer_cloud import extract_skills_from_jd_keywords, compare_resume_with_jd
-from voice_interview import transcribe_audio_file, analyze_speech_feedback
+from voice_interview_cloud import transcribe_audio_file, analyze_speech_feedback
 import os
 
 def rewrite(section, tone, job_title):
