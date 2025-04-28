@@ -19,3 +19,7 @@ models/jd_skill_extractor/**
 
 # Hugging Face cache (global, use only if stored inside project)
 .cache/
+
+# Ignore docs 
+*.docs
+*.docx

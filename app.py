@@ -113,6 +113,23 @@ with gr.Blocks(title="JobGenie: AI-Powered Career Assistant") as demo:
             inputs=[audio_input],
             outputs=[transcript_output, feedback_output]
         )
+    
+    with gr.Tab("📈 Model Fine-tuning Results"):
+        gr.Markdown("### Fine-Tuning Graphs and Metrics")
+
+        with gr.Row():
+            with gr.Column():
+                gr.Image("plots/loss_curve.png", label="Training Loss Curve")
+            with gr.Column():
+                gr.Image("plots/sample_jaccard_scores.png", label="Per-Sample Jaccard Scores")
+
+        gr.Markdown("### Skill Extraction Visualizations")
+
+        with gr.Row():
+            with gr.Column():
+                gr.Image("plots/true_vs_predicted_counts.png", label="True vs Predicted Skills Count")
+            with gr.Column():
+                gr.Image("plots/skills_wordcloud.png", label="WordCloud of Skills")
 
 
 

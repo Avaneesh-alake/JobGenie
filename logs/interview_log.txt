@@ -1,0 +1,10 @@
+
+---
+ 2025-04-27 21:57:25
+Transcript:  I have around 2 years of experience working with AWS and Azure platforms. I have developed applications using EC2 instances managed to reach through ES3 buckets and configured serverless functions with AWS Lambda. In Azure, I primarily worked on checking up resources groups, virtual networks and monitoring and very comfortable with cloud deployment and maintainable activities.
+Feedback: Is this person a good fit for the role?
+
+---
+ 2025-04-27 22:12:27
+Transcript: Error transcribing audio: expected np.ndarray (got NoneType)
+Feedback: The audio is not transcribing properly.
