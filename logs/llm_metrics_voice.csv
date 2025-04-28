@@ -1,3 +1,5 @@
 Timestamp,Task,Model,Tokens,Latency(s),Prompt,Output
 2025-04-27 21:57:25,Voice Feedback,flan-t5-base,9,1.51," I have around 2 years of experience working with AWS and Azure platforms. I have developed applications using EC2 instances managed to reach through ES3 buckets and configured serverless functions with AWS Lambda. In Azure, I primarily worked on checking up resources groups, virtual networks and monitoring and very comfortable with cloud deployment and maintainable activities.",Is this person a good fit for the role?
 2025-04-27 22:12:27,Voice Feedback,flan-t5-base,6,0.69,Error transcribing audio: expected np.ndarray (got NoneType),The audio is not transcribing properly.
+2025-04-28 15:10:37,Voice Feedback,flan-t5-base,6,1.41,Error transcribing audio: expected np.ndarray (got NoneType),The audio is not transcribing properly.
+2025-04-28 15:10:44,Voice Feedback,flan-t5-base,6,0.59, Now in the air I have worked on Kubernetes deployment and automated infrastructure with the Terraform and AWS.,I'm a big fan of Kubernetes.

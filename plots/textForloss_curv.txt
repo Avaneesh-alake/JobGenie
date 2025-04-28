@@ -1,1 +1,0 @@
-"Figure: Training Loss Curve showing steady decline over epochs during fine-tuning of Flan-T5-small model for JD Skill Extraction."
