@@ -58,5 +58,5 @@ tokenizer.save_pretrained("models/jd_skill_extractor/final_model")
 model.eval()
 # inputs = tokenizer("extract skills: Looking for a cloud architect skilled in AWS, Terraform, and Kubernetes.", return_tensors="pt")
 inputs = tokenizer("extract key skills only: Looking for a cloud architect skilled in AWS, Terraform, and Kubernetes.", return_tensors="pt")
-outputs = model.generate(inputs["input_ids"], max_length=64)s
+outputs = model.generate(inputs["input_ids"], max_length=64)
 print("Test prediction after training:", tokenizer.decode(outputs[0], skip_special_tokens=True))
